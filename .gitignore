@@ -1,0 +1,15 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/BsaMobileTest/.vs/BsaMobileTest/DesignTimeBuild
+/BsaMobileTest/.vs/BsaMobileTest/FileContentIndex
+/BsaMobileTest/.vs/BsaMobileTest/v17
+/BsaMobileTest/.vs/ProjectEvaluation
+/BsaMobileTest/BsaMobileTest/bin/Debug/netstandard2.0
+/BsaMobileTest/BsaMobileTest/obj
+/BsaMobileTest/BsaMobileTest.Android/bin/Debug
+/BsaMobileTest/BsaMobileTest.Android/obj
+/BsaMobileTest/BsaMobileTest.iOS/bin/iPhoneSimulator/Debug
+/BsaMobileTest/BsaMobileTest.iOS/obj
+/BsaMobileTest/.vs/bsaMobileTest/v16

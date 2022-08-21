@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="bsaMobileTest.Views.AddUserPage" BackgroundColor="Yellow"
+             Shell.PresentationMode="ModalAnimated"
+             Title="{Binding Title}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true">
+    <ScrollView>
+        <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+            <StackLayout>
+                <Label Text="Fill the user info." FontSize="Default"/>
+                <Entry Text="{Binding Name}" Placeholder="Name" />
+                <Entry Text="{Binding Email}" Placeholder="Email" />
+                <Entry Text="{Binding Username}" Placeholder="Username"/>
+                <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True" Visual="Default"/>
+                <Entry Text="{Binding Phone}" Placeholder="Phone Number" MaxLength="11" />
+                <Entry Text="{Binding City}" Placeholder="City" />
+                <Entry Text="{Binding CityCode}" Placeholder="City Code"/>
+                <Entry Text="{Binding State}" Placeholder="State"/>
+                <Entry Text="{Binding Country}" Placeholder="Country"/>
+                <Entry Text="{Binding CountryCode}" Placeholder="Country Code"/>
+                <Entry Text="{Binding Zip}" Placeholder="Zip"/>
+                <DatePicker Date="{Binding Birth}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

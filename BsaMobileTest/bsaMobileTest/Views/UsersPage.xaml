@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="bsaMobileTest.Views.UsersPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:bsaMobileTest.ViewModels"  
+             xmlns:model="clr-namespace:bsaMobileTest.Models"  
+             x:Name="BrowseUsersPage" BackgroundColor="Yellow">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddUserCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <RefreshView x:DataType="local:UsersViewModel" Command="{Binding LoadUsersCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Users}"
+                SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10" x:DataType="model:User" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                        <Entry Text="{Binding Name}" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="13" IsEnabled="False"/>
+                        <Entry Text="{Binding Username}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" IsEnabled="False"/> 
+
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:UsersViewModel}}, Path=UserTapped}"		
+                                CommandParameter="{Binding .}">
+                            </TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        <!--<StackLayout.GestureRecognizers>
+                            <SwipeGestureRecognizer 
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:UsersViewModel}}, Path=UserSwipedLeft}" 
+                                CommandParameter="{Binding .}"
+                                Direction="Left">
+                            </SwipeGestureRecognizer>
+                        </StackLayout.GestureRecognizers>-->
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>

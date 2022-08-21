@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="bsaMobileTest.Views.UserDetailsPage" BackgroundColor="Yellow">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Command="{Binding SaveUserCommand}" />
+        <ToolbarItem Text="Edit" Command="{Binding EditUserCommand}" />
+        <ToolbarItem Text="Del" Command="{Binding DelUserCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Always">
+            <StackLayout Orientation="Vertical" Padding="0,50,20,0">
+
+                <Label Text="    Name" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                <Entry Text="{Binding Name}" HorizontalOptions="FillAndExpand" IsEnabled="{Binding Enabled}" />
+
+                <Label Text="    Username" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                <Entry Text="{Binding Username}" HorizontalOptions="FillAndExpand" IsEnabled="{Binding Enabled}"/>
+
+                <Label Text="    Email" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                <Entry Text="{Binding Email}" HorizontalOptions="FillAndExpand" IsEnabled="{Binding Enabled}"/>
+
+                <Label Text="    Password" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                <Entry Text="{Binding Password}" HorizontalOptions="FillAndExpand" IsEnabled="{Binding Enabled}" IsPassword="True"/>
+
+                <Label Text="    Phone" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                <Entry Text="{Binding Phone}" IsEnabled="{Binding Enabled}" HorizontalOptions="FillAndExpand"/>
+
+                <Label Text="    City" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                <Entry Text="{Binding City}" IsEnabled="{Binding Enabled}" HorizontalOptions="FillAndExpand"/>
+
+                <Label Text="    City Code" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                <Entry Text="{Binding CityCode}" IsEnabled="{Binding Enabled}" HorizontalOptions="FillAndExpand"/>
+
+                <Label Text="    State" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                <Entry Text="{Binding State}" IsEnabled="{Binding Enabled}" HorizontalOptions="FillAndExpand"/>
+
+                <Label Text="    Country" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                <Entry Text="{Binding Country}" IsEnabled="{Binding Enabled}" HorizontalOptions="FillAndExpand"/>
+
+                <Label Text="    Country Code" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                <Entry Text="{Binding CountryCode}" IsEnabled="{Binding Enabled}" HorizontalOptions="FillAndExpand"/>
+
+                <Label Text="    Zip" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                <Entry Text="{Binding Zip}" IsEnabled="{Binding Enabled}" HorizontalOptions="FillAndExpand"/>
+
+                <Label Text="    Birth" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                <DatePicker Date="{Binding Birth}" IsEnabled="{Binding Enabled}" HorizontalOptions="FillAndExpand" />
+
+            </StackLayout>
+
+        </ScrollView>   
+    </ContentPage.Content>
+</ContentPage>
