@@ -21,8 +21,7 @@
                         <Entry Text="{Binding Name}"  
                             FontSize="13" IsEnabled="False"/>
                         <Entry Text="{Binding Username}" 
-                            LineBreakMode="NoWrap"
-                            IsEnabled="False"/> 
+                            FontSize="13" IsEnabled="False"/> 
 
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 
