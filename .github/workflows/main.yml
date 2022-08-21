@@ -1,0 +1,64 @@
+name: CI on Push and Pull Request
+
+on: [push, pull_request]
+
+jobs:
+  Practice:
+
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
+    - name: Show what in there
+      run: |
+        ls
+    - name: Show what is inside
+      run: |
+        cd ..
+        ls
+        
+  Android:
+
+    runs-on: macos-latest
+    
+    steps:
+
+    - uses: actions/checkout@v1
+      
+    - name: Android
+      run: |
+        cd BsaMobileTest
+        nuget restore
+        cd BsaMobileTest.Android
+        msbuild BsaMobileTest.Android.csproj /verbosity:normal /t:Rebuild /t:PackageForAndroid /t:SignAndroidPackage /p:Configuration=Debug 
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Android App
+        path: BsaMobileTest/BsaMobileTest.Android/bin/Debug/com.companyname.BsaMobileTest-Signed.apk
+        
+  iOS_Simulator:
+
+    runs-on: macos-latest
+    
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    
+    - name: iOS Simulator
+      run: |
+        cd BsaMobileTest
+        nuget restore
+        msbuild BsaMobileTest.iOS/BsaMobileTest.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
+        
+    - uses: actions/upload-artifact@v2
+      with:
+        name: iOS Simulator App
+        path: BsaMobileTest/BsaMobileTest.iOS/bin/iPhoneSimulator/Debug/BsaMobileTest.iOS.app
+         
