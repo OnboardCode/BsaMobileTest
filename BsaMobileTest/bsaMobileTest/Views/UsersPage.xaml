@@ -18,14 +18,11 @@
                 <DataTemplate>
                     <StackLayout Padding="10" x:DataType="model:User" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
 
-                        <Entry Text="{Binding Name}" 
-                            LineBreakMode="NoWrap" 
-                            Style="{DynamicResource ListItemTextStyle}" 
+                        <Entry Text="{Binding Name}"  
                             FontSize="13" IsEnabled="False"/>
                         <Entry Text="{Binding Username}" 
                             LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" IsEnabled="False"/> 
+                            IsEnabled="False"/> 
 
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 
